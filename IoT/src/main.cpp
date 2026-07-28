@@ -1,5 +1,5 @@
 // Set a unique identifier for your device before importing comms.h
-const char *mqttClient = "ESP32_Lachlan_C"; // EDIT THIS FIELD
+const char *mqttClient = "ESP32_Lachlan"; // EDIT THIS FIELD
 
 const char *mqttTopic;
 
@@ -49,6 +49,7 @@ void loop()
     if (now - lastUpdate > updateInterval)
     {
         lastUpdate = now;
+        Serial.println("Update data now");
         // TODO: Insert customized sendDataToServer() calls here.
     }
 
