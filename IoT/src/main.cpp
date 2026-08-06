@@ -43,6 +43,7 @@ void loop()
 {
     // 1. Maintain connection to the broker
     mqttConnect();
+    
 
     // 2. Transmit periodic telemetry (if required by design specification)
     unsigned long now = millis();
@@ -52,6 +53,7 @@ void loop()
         Serial.println("Update data now");
         // TODO: Insert customized sendDataToServer() calls here.
     }
+
 
     // 3. Yield execution time for PubSubClient processing
     client.loop();
