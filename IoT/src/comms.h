@@ -49,9 +49,10 @@ void sendDataToServer(String topic, String message)
         Serial.print(topic);
         Serial.print("]: ");
         Serial.println(message);
+        String acceptedTopic = topic + "/"  + String(mqttClient);
 
         // Convert String to char array for the PubSubClient library
-        client.publish(topic.c_str(), message.c_str());
+        client.publish(acceptedTopic.c_str(), message.c_str());
     }
     else
     {
@@ -106,7 +107,7 @@ void mqttConnect()
         {
             Serial.println("Connected to MQTT broker.");
             client.subscribe(mqttTopic);
-            topicBuffer = "EventLog/" + String(mqttClient);
+            topicBuffer = "EventLog";
             mqttTopic = topicBuffer.c_str();
             sendDataToServer(topicBuffer, String(mqttClient) + " is online");
         }
@@ -124,7 +125,7 @@ void mqttSetup()
 {
     // Construct topic name dynamically
     topicBuffer = "challenges/" + String(mqttClient);
-    Serial.print(topicBuffer);
+    Serial.println(topicBuffer);
     mqttTopic = topicBuffer.c_str();
 
     client.setServer(mqttServer, mqttPort);

@@ -52,6 +52,8 @@ void loop()
         lastUpdate = now;
         Serial.println("Update data now");
         // TODO: Insert customized sendDataToServer() calls here.
+        int randomNum = random(1, 10001);
+        sendDataToServer("sensorData", String(randomNum));
     }
 
 
@@ -59,3 +61,9 @@ void loop()
     client.loop();
     delay(100);
 }
+
+//mqttClient is the device name eg ESP32_Lachlan
+//MQTT Topics
+//EventLog/mqttClient       - For Device events eg startup, error   | Uploads
+//sensorData/mqttClient     - For Telementry Data                   | Uploads
+//devicePayload/mqttClient  - For Giving Device Data To Act On      | Recives
