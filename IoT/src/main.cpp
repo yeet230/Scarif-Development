@@ -89,7 +89,7 @@ void loop()
         int randomNum = random(0, 100);
         float temp = tempSensorUpdate();
 
-        String dataToUpload = "The tempreture is: " + String(temp) + "°C";
+        String dataToUpload = String(temp) + "°C";
 
         sendDataToServer("sensorData", dataToUpload);
     }
