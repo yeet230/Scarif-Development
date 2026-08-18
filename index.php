@@ -31,6 +31,7 @@ try {
     $errorMsg = $e->getMessage();
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
