@@ -41,7 +41,7 @@ try {
 $deviceStateStmt = $pdo->query("SELECT DISTINCT device_id FROM sensor_readings");
 $avaliableDevices = $deviceStateStmt->fetchALL(PDO::FETCH_COLUMN);
 
-print_r($avaliableDevices)
+print_r($avaliableDevices);
 ?>
 
 <!DOCTYPE html>
