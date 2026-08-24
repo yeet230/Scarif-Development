@@ -47,12 +47,10 @@ void performActionBasedOnPayload(String payload)
 
 float tempSensorUpdate()
 {
-    // Read and print out the temperature, then convert to *F
     float tempInC = tempsensor.readTempC();
    
     Serial.println(tempInC);
 
-    //delay(1000);
     return tempInC;
 }
 
