@@ -48,9 +48,6 @@ void performActionBasedOnPayload(String payload)
 float tempSensorUpdate()
 {
     float tempInC = tempsensor.readTempC();
-   
-    Serial.println(tempInC);
-
     return tempInC;
 }
 
