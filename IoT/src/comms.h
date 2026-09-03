@@ -8,6 +8,9 @@ DO NO CHANGE ANYTHING IN THIS FILE UNLESS YOU KNOW WHAT YOU ARE DOING, AS THIS F
 #include <WiFi.h>
 #include <PubSubClient.h>
 #include "sensitiveInformation.h" // ENSURE WIFI & MQTT IS CONFIGURED CORRECTLY
+#include <stdio.h>
+#include <time.h>
+
 
 // MQTT client setup
 WiFiClient espClient;
@@ -51,14 +54,17 @@ void sendDataToServer(String topic, String message)
     if (client.connected())
     {
         
-
+        String finalTopic = String(topic + "/" + mqttClient);
         Serial.print("Sending message to topic [");
         Serial.print(topic);
         Serial.print("]: ");
         Serial.println(message);
 
         // Convert String to char array for the PubSubClient library
-        client.publish(topic.c_str(), message.c_str());
+        client.publish(finalTopic.c_str(), message.c_str());
+
+      //  time_t currentTime = time(NULL); // Get epoch time
+      //  printf("Current time: %s", ctime(&currentTime)); // Convert and print
     }
     else
     {
