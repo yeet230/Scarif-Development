@@ -310,6 +310,7 @@ $availableDevices = $deviceStatesStmt->fetchAll(PDO::FETCH_COLUMN);
                         <select name="state_value" id="state_value">
                             <option value="1">1 (ON / Active)</option>
                             <option value="0">0 (OFF / Inactive)</option>
+                            <option value="3">3 (IDK / SOmthing) </option>
                         </select>
                     </div>
                     <div>
