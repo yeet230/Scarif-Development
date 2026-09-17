@@ -1,4 +1,9 @@
 <?php
+require_once 'auth.php';
+
+// Enforce admin-only access
+authorise(['admin', 'staff', 'teach']);
+
 // src/errorlog.php - Displays all records from the error_log table
 $host = getenv('DB_HOST') ?: '10.0.0.100';
 $port = getenv('DB_PORT') ?: '3306';
