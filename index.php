@@ -1,8 +1,4 @@
 <?php
-require_once 'auth.php';
-
-// Enforce admin-only access
-authorise(['admin', 'student', 'staff', 'guest', 'teach', '']);
 
 
 // src/index.php - System Landing Page & Navigation Hub

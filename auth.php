@@ -20,7 +20,7 @@ function authorise(array $allowedRoles = []): void
     }
 
     // 2. Fetch current user role from session (default to 'guest' if not set)
-    $userRole = $_SESSION['user_role'] ?? 'guest';
+    $userRole = $_SESSION['access_level'] ?? 'guest';
 
     // 3. If allowedRoles is specified, verify user has access
     if (!empty($allowedRoles) && !in_array($userRole, $allowedRoles, true)) {

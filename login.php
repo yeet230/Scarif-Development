@@ -1,9 +1,4 @@
 <?php
-require_once 'auth.php';
-
-// Enforce admin-only access
-authorise(['admin', 'student', 'staff', 'guest', 'teach']);
-
 // Start output buffering and session management
 ob_start();
 if (session_status() === PHP_SESSION_NONE) {
@@ -140,6 +135,7 @@ try {
                                                         <i class="fas fa-check-circle me-2"></i>
                                                         <div>Welcome back, ' . htmlspecialchars($user['first_name']) . '! You logged in successfully.</div>
                                                       </div>';
+                                                    header("Location: index.php");
                                                 } else {
                                                     echo '<div class="alert alert-danger d-flex align-items-center">
                                                         <i class="fas fa-exclamation-triangle me-2"></i>
