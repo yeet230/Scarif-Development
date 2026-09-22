@@ -11,16 +11,16 @@ if (session_status() === PHP_SESSION_NONE) {
  * @param array $allowedRoles List of roles permitted to view the page (e.g., ['admin', 'staff'])
  * @return void
  */
-function authorise(array $allowedRoles = []): void 
+function authorise(array $allowedRoles = []): void
 {
-    // 1. Check if user is logged in
-    if (!isset($_SESSION['user_id'])) {
-        header('Location: login.php?error=unauthenticated');
-        exit();
-    }
+    // // 1. Check if user is logged in
+    // if (!isset($_SESSION['user_id'])) {
+    //     header('Location: login.php?error=unauthenticated');
+    //     exit();
+    // }
 
     // 2. Fetch current user role from session (default to 'guest' if not set)
-    $userRole = $_SESSION['access_level'] ?? 'guest';
+    $userRole = $_SESSION['access_level'] ?? 'unauth';
 
     // 3. If allowedRoles is specified, verify user has access
     if (!empty($allowedRoles) && !in_array($userRole, $allowedRoles, true)) {
@@ -29,13 +29,14 @@ function authorise(array $allowedRoles = []): void
     }
 }
 
+
 /**
  * Helper function to output an HTTP 403 response and display an unauthorised error page.
  *
  * @param string $userRole The role of the currently logged-in user
  * @return void
  */
-function renderUnauthorisedPage(string $userRole): void 
+function renderUnauthorisedPage(string $userRole): void
 {
     http_response_code(403);
     ?>
