@@ -39,9 +39,10 @@ function authorise(array $allowedRoles = []): void
 function renderUnauthorisedPage(string $userRole): void
 {
     http_response_code(403);
-    ?>
+?>
     <!DOCTYPE html>
     <html lang="en-AU">
+
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -57,18 +58,30 @@ function renderUnauthorisedPage(string $userRole): void
                 min-height: 100vh;
                 margin: 0;
             }
+
             .error-card {
                 background: #ffffff;
                 padding: 2.5rem;
                 border-radius: 8px;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
                 max-width: 500px;
                 width: 90%;
                 text-align: center;
                 border-top: 6px solid #dc3545;
             }
-            h1 { color: #dc3545; margin-top: 0; font-size: 2rem; }
-            p { font-size: 1rem; color: #555; line-height: 1.5; }
+
+            h1 {
+                color: #dc3545;
+                margin-top: 0;
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1rem;
+                color: #555;
+                line-height: 1.5;
+            }
+
             .role-badge {
                 display: inline-block;
                 background: #eef2f7;
@@ -78,6 +91,7 @@ function renderUnauthorisedPage(string $userRole): void
                 font-family: monospace;
                 font-weight: bold;
             }
+
             .btn {
                 display: inline-block;
                 margin-top: 1.5rem;
@@ -88,9 +102,13 @@ function renderUnauthorisedPage(string $userRole): void
                 border-radius: 5px;
                 font-weight: 600;
             }
-            .btn:hover { background: #004085; }
+
+            .btn:hover {
+                background: #004085;
+            }
         </style>
     </head>
+
     <body>
         <div class="error-card">
             <h1>403 - Access Forbidden</h1>
@@ -99,6 +117,7 @@ function renderUnauthorisedPage(string $userRole): void
             <a href="index.php" class="btn">&larr; Return to Central Hub</a>
         </div>
     </body>
+
     </html>
-    <?php
+<?php
 }

@@ -64,7 +64,7 @@ void sendDataToServer(String topic, String message)
         client.publish(finalTopic.c_str(), message.c_str());
 
       //  time_t currentTime = time(NULL); // Get epoch time
-      //  printf("Current time: %s", ctime(&currentTime)); // Convert and print
+      //      printf("Current time: %s", ctime(&currentTime)); // Convert and print
     }
     else
     {
