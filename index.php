@@ -5,7 +5,10 @@ require_once 'auth.php';
 authorise(['admin', 'student', 'staff', 'teach', 'unauth']);
 
 // src/index.php - System Landing Page & Navigation Hub
-session_start();
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 $isLoggedIn = isset($_SESSION['user_id']);
 $firstName  = $isLoggedIn ? ($_SESSION['first_name'] ?? 'User') : '';

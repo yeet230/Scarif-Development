@@ -29,7 +29,6 @@ function authorise(array $allowedRoles = []): void
     }
 }
 
-
 /**
  * Helper function to output an HTTP 403 response and display an unauthorised error page.
  *

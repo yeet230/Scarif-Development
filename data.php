@@ -4,6 +4,10 @@ require_once 'auth.php';
 // Enforce admin-only access
 authorise(['admin', 'student', 'staff', 'teach']);
 
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 // Extrapolate environment configurations assigned via Docker Compose
 $host = getenv('DB_HOST') ?: 'localhost';
 $port = getenv('DB_PORT') ?: '3306';
